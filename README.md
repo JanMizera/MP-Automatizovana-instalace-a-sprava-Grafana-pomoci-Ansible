@@ -1,1 +1,1 @@
-# MP-Automatizovan-instalace-a-spr-va-Grafana-pomoc-Ansible
+# MP-Automatizovana-instalace-a-sprava-Grafana-pomoci-Ansible
