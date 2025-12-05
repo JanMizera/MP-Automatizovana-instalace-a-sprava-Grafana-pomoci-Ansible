@@ -1,0 +1,30 @@
+IMAGE_NAME = "ubuntu/jammy64"
+
+Vagrant.configure("2") do |config|
+    config.vm.provider "virtualbox" do |v|
+        v.memory = 2048
+        v.cpus = 2
+        v.name = "Zabbix-SRV01"
+    end
+
+    config.vm.define "ubuntu" do |ubuntu|
+        ubuntu.vm.box = IMAGE_NAME
+        ubuntu.vm.network "forwarded_port", guest: 22, host: 2202, host_ip: "127.0.0.1"
+	ubuntu.vm.network "forwarded_port", guest: 80, host: 8002, host_ip: "127.0.0.1"
+        ubuntu.vm.network "private_network", ip: "192.168.1.2", virtualbox__intnet: "intnet"
+        ubuntu.vm.hostname = "zabbix"
+    end
+
+    config.vm.provision "file", source: "pre-install-docker.yml", destination: "~/"
+
+    config.vm.provision "shell", inline: <<-SHELL
+	sudo apt update
+	sudo apt install -y ansible net-tools git
+	ansible-playbook pre-install-docker.yml
+	git clone https://github.com/zabbix/zabbix-docker
+	cd zabbix-docker
+	sudo docker compose -f ./docker-compose_v3_ubuntu_pgsql_latest.yaml up -d
+
+    SHELL
+
+end
