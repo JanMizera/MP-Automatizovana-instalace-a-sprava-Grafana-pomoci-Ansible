@@ -1,1 +1,0 @@
-Tato složka soubory se kterými jsem pracoval a použil, ať už částečně či úplně a které mi byly poskytnuty mým vedoucím práce, ať už založené na mojí už hotové práci či nikoliv.
