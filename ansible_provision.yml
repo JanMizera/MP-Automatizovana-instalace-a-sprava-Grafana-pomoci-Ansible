@@ -1,0 +1,25 @@
+---
+- name: Install and prepare Ansible
+  hosts: all
+  become: yes
+  tasks:
+
+  #Update před spuštěním a prováděním čehokoliv
+  - name: Update and upgrade
+    ansible.builtin.apt:
+      update_cache: true
+      name:
+        - git
+        - sshpass
+      state: present
+
+  #Instalace potřebných kolekcí
+  - name: Install Ansible collections
+    ansible.builtin.command:
+      cmd:  ansible-galaxy collection install community.zabbix community.grafana --force
+
+  #Naklonování repozitáře
+  - name: Cloning Git repository
+    ansible.builtin.git:
+      repo: 'https://github.com/JanMizera/MP-Automatizovana-instalace-a-sprava-Grafana-pomoci-Ansible.git'
+      dest: /repo

@@ -36,5 +36,9 @@ Vagrant.configure("2") do |config|
         bastion.vm.box = IMAGE_NAME
         bastion.vm.hostname = "bastion"
         bastion.vm.network "private_network", ip: "192.168.1.5", virtualbox__intnet: "intnet"
+        bastion.vm.provision "ansible_local" do |ansible|
+            ansible.playbook = "ansible_provision.yml"
+            ansible.install_mode = "default"
+        end
     end
 end
