@@ -16,4 +16,4 @@ Tento projekt používá operační systém **bento/ubuntu-24.04**. Kvůli znám
 Následně musíte box přidat do lokální Vagrant cache. Spusťte tento příkaz z kořenového adresáře projektu, kam jste soubor uložil:
 
 ```bash
-vagrant box add bento/ubuntu-24.04 bento-ubuntu-24.04-virtualbox.box --provider virtualbox
+vagrant box add bento/ubuntu-24.04 bento-ubuntu-24.04-virtualbox.box --provider virtualbox  
