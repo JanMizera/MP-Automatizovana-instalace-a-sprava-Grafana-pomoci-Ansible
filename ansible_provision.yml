@@ -1,7 +1,7 @@
 ---
 - name: Install and prepare Ansible
   hosts: all
-  become: yes
+  become: true
   tasks:
 
   #Update před spuštěním a prováděním čehokoliv
@@ -16,10 +16,18 @@
   #Instalace potřebných kolekcí
   - name: Install Ansible collections
     ansible.builtin.command:
-      cmd:  ansible-galaxy collection install community.zabbix community.grafana --force
+      cmd:  ansible-galaxy collection install community.zabbix community.grafana community.docker --force
 
   #Naklonování repozitáře
   - name: Cloning Git repository
     ansible.builtin.git:
       repo: 'https://github.com/JanMizera/MP-Automatizovana-instalace-a-sprava-Grafana-pomoci-Ansible.git'
-      dest: /repo
+      dest: /opt/repo
+
+  #Ukončení provisioningu
+  #Spouštění nového procesu a zahájení správy konfigurace
+  - name: Bootstrap server configuration from repository
+    ansible.builtin.command:
+      cmd: ansible-playbook configure_servers.yml
+      chdir: /opt/repo
+    become: false

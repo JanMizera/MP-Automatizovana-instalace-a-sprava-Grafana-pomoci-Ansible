@@ -1,6 +1,6 @@
 ---
 - name: Installing Docker
-  hosts: localhost
+  hosts: nodes
   become: true
   tasks:
     - name: Install several packages
@@ -37,7 +37,7 @@
 
     - name: Add zabbix user to the docker group
       user:
-        name: zabbbix
+        name: zabbix
         groups: docker
         append: yes
 

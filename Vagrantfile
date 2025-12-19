@@ -1,11 +1,14 @@
 IMAGE_NAME = "bento/ubuntu-24.04"
 
 Vagrant.configure("2") do |config|
+    #Globální definice platná pro všechny VM, pokud není určeno jinak
     config.vm.provider "virtualbox" do |v|
         v.memory = 2048
         v.cpus = 2
     end
 
+
+    #Provisioning Zabbix serveru a nastavení sítě a port-forwardingu
     config.vm.define "zabbix-srv01" do |zabbix|
         zabbix.vm.provider "virtualbox" do |v|
             v.name = "Zabbix-SRV01"
@@ -17,6 +20,8 @@ Vagrant.configure("2") do |config|
         zabbix.vm.network "private_network", ip: "192.168.1.2", virtualbox__intnet: "intnet"
     end
 
+
+    #Provisioning serveru Grafana a nastavení sítě a port-forwardingu
     config.vm.define "grafana-srv02" do |grafana|
         grafana.vm.provider "virtualbox" do |v|
             v.name = "Grafana-SRV02"
@@ -28,6 +33,8 @@ Vagrant.configure("2") do |config|
         grafana.vm.network "private_network", ip: "192.168.1.3", virtualbox__intnet: "intnet"
     end
 
+
+    #Provisioning CN
     config.vm.define "bastion-srv03" do |bastion|
         bastion.vm.provider "virtualbox" do |v|
             v.memory = 1024
@@ -36,6 +43,7 @@ Vagrant.configure("2") do |config|
         bastion.vm.box = IMAGE_NAME
         bastion.vm.hostname = "bastion"
         bastion.vm.network "private_network", ip: "192.168.1.5", virtualbox__intnet: "intnet"
+        #Instalace Ansiblu na CN a stažení potřebných balíčků a Ansible modulů
         bastion.vm.provision "ansible_local" do |ansible|
             ansible.playbook = "ansible_provision.yml"
             ansible.install_mode = "default"
