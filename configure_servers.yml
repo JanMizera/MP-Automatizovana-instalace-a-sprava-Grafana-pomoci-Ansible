@@ -10,9 +10,11 @@
           - git
           - net-tools
 
-- import_playbook: /opt/repo/install-zabbix-agent2.yml
+    - name: Install Zabbix agent2
+      ansible.builtin.import_tasks: /opt/repo/install-zabbix-agent2.yml
 
-- import_playbook: /opt/repo/pre-install-docker.yml
+    - name: Preinstall Docker
+      ansible.builtin.import_tasks: /opt/repo/pre-install-docker.yml
 
 - name: Configure and start Zabbix in Docker
   hosts: zabbix_servers
@@ -41,7 +43,7 @@
     
     - name: Copy docker-compose.yaml to the server
       ansible.builtin.copy:
-        src: /opt/repo/docker-compose.yaml
+        src: /opt/repo/grafana-compose.yaml
         dest: /opt/grafana/docker-compose.yaml
 
     - name: Docker compose

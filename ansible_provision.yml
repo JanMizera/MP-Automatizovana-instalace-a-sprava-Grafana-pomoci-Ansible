@@ -31,3 +31,9 @@
       cmd: ansible-playbook configure_servers.yml
       chdir: /opt/repo
     become: false
+    register: configure_output
+
+  #Vypsání logu do příkazové řádky
+  - name: Print output from configure_servers playbook
+    ansible.builtin.debug:
+      var: configure_output.stdout_lines
