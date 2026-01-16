@@ -1,3 +1,4 @@
+#Lokální proměná pro název image
 IMAGE_NAME = "bento/ubuntu-24.04"
 
 Vagrant.configure("2") do |config|

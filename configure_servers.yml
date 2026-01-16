@@ -1,6 +1,6 @@
 ---
 - name: Configure managed nodes
-  hosts: nodes
+  hosts: managed_nodes
   become: true
   tasks:
     - name: Update and install Git
@@ -10,11 +10,15 @@
           - git
           - net-tools
 
-    - name: Install Zabbix agent2
-      ansible.builtin.import_tasks: /opt/repo/install-zabbix-agent2.yml
-
     - name: Preinstall Docker
       ansible.builtin.import_tasks: /opt/repo/pre-install-docker.yml
+
+- name: Install Zabbix agent2
+  hosts: all
+  become: true
+  tasks:
+    - name: Import tasks for installation
+      ansible.builtin.import_tasks: /opt/repo/install-zabbix-agent2.yml
 
 - name: Configure and start Zabbix in Docker
   hosts: zabbix_servers
