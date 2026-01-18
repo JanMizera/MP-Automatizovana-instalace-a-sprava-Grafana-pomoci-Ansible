@@ -11,6 +11,8 @@
       name:
         - git
         - sshpass
+        - joe
+        - mc
       state: present
 
   #Instalace potřebných kolekcí

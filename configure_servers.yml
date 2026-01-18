@@ -9,6 +9,8 @@
         name:
           - git
           - net-tools
+          - joe
+          - mc
 
     - name: Preinstall Docker
       ansible.builtin.import_tasks: /opt/repo/pre-install-docker.yml
