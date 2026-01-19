@@ -1,6 +1,6 @@
 ---
 - name: Install and prepare Ansible
-  hosts: all
+  hosts: all #protože Ansible nevidí žádné jiné uzly
   become: true
   tasks:
 
@@ -18,7 +18,7 @@
   #Instalace potřebných kolekcí
   - name: Install Ansible collections
     ansible.builtin.command:
-      cmd:  ansible-galaxy collection install community.zabbix community.grafana community.docker --force
+      cmd: ansible-galaxy collection install community.zabbix community.grafana community.docker --force
 
   #Naklonování repozitáře
   - name: Cloning Git repository
@@ -28,6 +28,7 @@
 
   #Ukončení provisioningu
   #Spouštění nového procesu a zahájení správy konfigurace
+  #Při tomto procesu si Ansiblew převezme konfiguraci z ansible.cfg a inventory.ini
   - name: Bootstrap server configuration from repository
     ansible.builtin.command:
       cmd: ansible-playbook configure_servers.yml
