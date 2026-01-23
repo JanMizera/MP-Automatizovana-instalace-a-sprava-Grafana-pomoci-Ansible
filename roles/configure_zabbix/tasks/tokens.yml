@@ -1,6 +1,8 @@
 ---
 - name: Create Zabbix user token
   community.zabbix.zabbix_token:
+    http_login_user: "Admin"
+    http_login_password: "{{ zabbix_admin_user_default_password }}"
     name: Grafana token
     username: "{{ zabbix_api_user }}"
     state: present
