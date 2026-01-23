@@ -22,5 +22,3 @@
 
 - name: Create API token
   ansible.builtin.import_tasks: tokens.yml
-
-- name: Import templates to Zabbix
