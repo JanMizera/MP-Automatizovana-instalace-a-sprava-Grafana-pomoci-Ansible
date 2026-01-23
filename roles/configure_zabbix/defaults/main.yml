@@ -1,7 +1,7 @@
 ---
 zabbix_admin_user: Admin
 zabbix_admin_user_default_password: zabbix
-zabbix_admin_user_password: admin
+zabbix_admin_user_password: adminadmin
 zabbix_api_user: Ansible
 zabbix_api_user_password: ansible
 ansible_network_os: community.zabbix.zabbix
