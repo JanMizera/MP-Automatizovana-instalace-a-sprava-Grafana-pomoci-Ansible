@@ -4,13 +4,13 @@
     ansible_user: "{{ zabbix_admin_user }}"
     ansible_httpapi_pass: "{{ zabbix_admin_user_default_password }}"
 
-- name: Change default admin passwd
-  ansible.builtin.import_tasks: passwd.yml
-
-- name: Set updated credentials to access Zabbix Server API
-  ansible.builtin.set_fact:
-    ansible_user: "{{ zabbix_admin_user }}"
-    ansible_httpapi_pass: "{{ zabbix_admin_user_password }}"
+#- name: Change default admin passwd
+#  ansible.builtin.import_tasks: passwd.yml
+#
+#- name: Set updated credentials to access Zabbix Server API
+#  ansible.builtin.set_fact:
+#    ansible_user: "{{ zabbix_admin_user }}"
+#    ansible_httpapi_pass: "{{ zabbix_admin_user_password }}"
 
 - name: Add users to zabbix
   ansible.builtin.import_tasks: users.yml
