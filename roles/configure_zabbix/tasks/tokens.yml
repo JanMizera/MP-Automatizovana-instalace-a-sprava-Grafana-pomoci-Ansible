@@ -6,7 +6,7 @@
     state: present
     generate_token: true
     expires_at: 0
-    register: grafana_token_output
+  register: grafana_token_output
 
 - name: Create directory for the token
   ansible.builtin.file:
