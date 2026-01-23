@@ -7,7 +7,7 @@
     ansible_httpapi_use_ssl: false
     ansible_httpapi_validate_certs: false
     ansible_zabbix_url_path: ""
-    ansible_host: "{{ zabbix_ansible_server }}"
+    ansible_host: "{{ zabbix_server_main }}"
   community.zabbix.zabbix_user:
     username: "{{ zabbix_api_user }}"
     passwd: "{{ zabbix_api_user_password }}"
