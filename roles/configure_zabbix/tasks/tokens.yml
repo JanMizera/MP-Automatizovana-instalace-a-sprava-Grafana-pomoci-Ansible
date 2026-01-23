@@ -1,0 +1,23 @@
+---
+- name: Create Zabbix user token
+  community.zabbix.zabbix_token:
+    name: Grafana token
+    username: "{{ zabbix_api_user }}"
+    state: present
+    generate_token: true
+    expires_at: 0
+    register: grafana_token_output
+
+- name: Create directory for the token
+  ansible.builtin.file:
+    path: "/opt/tokens"
+    mode: '0755'
+  become: true
+
+- name: Save the token into local file
+  ansible.builtin.copy:
+    dest: "/opt/tokens/grafana_token.txt"
+    content: "{{ grafana_token_output.token }}"
+    mode: '0600'
+  become: true
+  when: zabbix_token_output.token is defined
