@@ -13,6 +13,7 @@
 - name: Create directory for the token
   ansible.builtin.file:
     path: "/opt/tokens"
+    state: directory
     mode: '0755'
   become: true
 
