@@ -15,10 +15,10 @@
 - name: Add users to zabbix
   ansible.builtin.import_tasks: users.yml
 
-- name: Set credentials to access Zabbix Server API
-  ansible.builtin.set_fact:
-    ansible_user: "{{ zabbix_api_user }}"
-    ansible_httpapi_pass: "{{ zabbix_api_user_password }}"
+#- name: Set credentials to access Zabbix Server API
+#  ansible.builtin.set_fact:
+#    ansible_user: "{{ zabbix_api_user }}"
+#    ansible_httpapi_pass: "{{ zabbix_api_user_password }}"
 
 - name: Create API token
   ansible.builtin.import_tasks: tokens.yml
