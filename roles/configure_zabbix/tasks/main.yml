@@ -22,3 +22,8 @@
 
 - name: Create API token
   ansible.builtin.import_tasks: tokens.yml
+
+ #- name: Import Zabbix template
+ #  ansible.builtin.import_tasks: template.yml
+
+ 
