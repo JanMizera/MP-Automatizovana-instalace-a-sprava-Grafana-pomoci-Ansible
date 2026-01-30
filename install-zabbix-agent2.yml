@@ -7,6 +7,6 @@
     zabbix_agent2: true
     zabbix_agent_hostname: "{{ inventory_hostname }}"
     zabbix_agent_listenip: "{{ ansible_host }}"
-    zabbix_agent_server: 192.168.1.2
+    zabbix_agent_server: "192.168.1.2,172.16.0.0/12"
     zabbix_agent_serveractive: 192.168.1.2
     zabbix_agent_host_state: present
