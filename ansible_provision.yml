@@ -4,7 +4,7 @@
   become: true
   tasks:
 
-  #Update před spuštěním a prováděním čehokoliv
+  #Update před spuštěním a prováděním čehokoliv a instalace potřebných balíčků
   - name: Update and upgrade
     ansible.builtin.apt:
       update_cache: true

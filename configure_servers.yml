@@ -3,6 +3,7 @@
   hosts: managed_nodes
   become: true
   tasks:
+    #Update před spuštěním a prováděním čehokoliv a instalace potřebných balíčků
     - name: Update and install Git
       ansible.builtin.apt:
         update_cache: true
@@ -11,10 +12,12 @@
           - net-tools
           - joe
           - mc
-
+          
+    #Spuštění playbooku pro instalaci Dockeru
     - name: Preinstall Docker
       ansible.builtin.import_tasks: /opt/repo/pre-install-docker.yml
 
+#Instalace Zabbix agent 2 na všechny uzly
 - name: Install Zabbix agent2
   hosts: all
   become: true
@@ -22,6 +25,7 @@
     - name: Import tasks for installation
       ansible.builtin.import_tasks: /opt/repo/install-zabbix-agent2.yml
 
+#Instalace a spuštění Zabbixu v Dockeru
 - name: Configure and start Zabbix in Docker
   hosts: zabbix_servers
   become: true
@@ -38,6 +42,7 @@
           -   docker-compose_v3_ubuntu_pgsql_latest.yaml
       register: output
 
+#Instalace a spuštění Grafany v Dockeru
 - name: Configure and start Grafana in Docker
   hosts: grafana_servers
   become: true
