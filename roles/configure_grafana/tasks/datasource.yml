@@ -9,5 +9,7 @@
     ds_url: "http://192.168.1.2:8002/api_jsonrpc.php"
     access: proxy
     state: present
+    additional_json_data:
+      authType: "token"
     additional_secure_json_data:
       apiToken: "{{ lookup('ansible.builtin.file', '/opt/tokens/grafana_token.txt') }}"
