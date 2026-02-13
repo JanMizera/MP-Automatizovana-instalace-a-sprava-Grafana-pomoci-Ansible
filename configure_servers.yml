@@ -46,6 +46,8 @@
 - name: Configure and start Grafana in Docker
   hosts: grafana_servers
   become: true
+  vars_files:
+    - vars/vault.yml
   tasks:
     - name: Create a directory for the docker-compose.yaml
       ansible.builtin.file:
