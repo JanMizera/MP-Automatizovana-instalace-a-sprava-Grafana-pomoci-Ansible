@@ -1,1 +1,3 @@
 ---
+- name: Add Zabbix datasource to grafana
+  ansible.builtin.import_task: datasource.yml
