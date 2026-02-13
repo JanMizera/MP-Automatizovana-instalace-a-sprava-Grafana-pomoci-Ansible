@@ -53,8 +53,8 @@
         state: directory
     
     - name: Copy docker-compose.yaml to the server
-      ansible.builtin.copy:
-        src: /opt/repo/grafana-compose.yaml
+      ansible.builtin.template:
+        src: /opt/repo/grafana-compose.yaml.j2
         dest: /opt/grafana/docker-compose.yaml
 
     - name: Docker compose
