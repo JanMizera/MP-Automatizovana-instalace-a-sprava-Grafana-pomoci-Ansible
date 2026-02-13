@@ -11,5 +11,6 @@
     state: present
     additional_json_data:
       authType: "token"
+      trends: true
     additional_secure_json_data:
       apiToken: "{{ lookup('ansible.builtin.file', '/opt/tokens/grafana_token.txt') }}"

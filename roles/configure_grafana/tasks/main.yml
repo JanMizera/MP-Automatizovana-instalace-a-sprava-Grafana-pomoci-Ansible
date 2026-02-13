@@ -1,3 +1,6 @@
 ---
+- name: Enable Zabbix plugin via Grafana API
+  ansible.builtin.import_tasks: enable.yml
+
 - name: Add Zabbix datasource to grafana
   ansible.builtin.import_tasks: datasource.yml
