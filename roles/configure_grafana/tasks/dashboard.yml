@@ -1,0 +1,10 @@
+---
+- name: Import dashboard
+  community.grafana.grafana_dashboard:
+    name: Zabbix-SRV01
+    url: "http://192.168.1.3:3000"
+    url_username: admin
+    url_password: "{{ grafana_admin_password }}"
+    path: "postgres_dashboard.json"
+    state: present
+    overwrite: yes
