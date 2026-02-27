@@ -6,4 +6,4 @@
   ansible.builtin.import_tasks: datasource.yml
 
 - name: Add Zabbix-SRV01 dashboard to Grafana
-  ansible.builtin.import_tasks: datasource.yml
+  ansible.builtin.import_tasks: dashboard.yml
