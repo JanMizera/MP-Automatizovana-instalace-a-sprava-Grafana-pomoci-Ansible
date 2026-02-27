@@ -6,7 +6,7 @@
     url_username: admin
     url_password: "{{ grafana_admin_password }}"
     ds_type: alexanderzobnin-zabbix-datasource
-    ds_url: "http://192.168.1.2:8002/api_jsonrpc.php"
+    ds_url: "http://192.168.1.2/api_jsonrpc.php"
     access: proxy
     state: present
     additional_json_data:
