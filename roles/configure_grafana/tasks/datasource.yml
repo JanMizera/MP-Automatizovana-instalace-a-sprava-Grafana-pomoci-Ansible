@@ -9,6 +9,7 @@
     ds_url: "http://192.168.1.2/api_jsonrpc.php"
     access: proxy
     state: present
+    uid: "afehitfoh97nka"
     additional_json_data:
       authType: "token"
       trends: true
