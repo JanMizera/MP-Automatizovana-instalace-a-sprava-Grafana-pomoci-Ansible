@@ -8,5 +8,6 @@
     force_basic_auth: yes
     body_format: json
     body:
+      id: "alexanderzobnin-zabbix-app"
       enabled: true
     status_code: 200
