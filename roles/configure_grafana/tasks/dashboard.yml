@@ -4,6 +4,6 @@
     url: "http://192.168.1.3:3000"
     url_username: admin
     url_password: "{{ grafana_admin_password }}"
-    path: "../files/Zabbix-SRV01.json"
+    path: "{{ role_path }}/files/Zabbix-SRV01.json"
     state: present
     overwrite: yes
