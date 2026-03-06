@@ -3,3 +3,5 @@
 
 #Ignoruje všechny soubory .box, kvůli velikosti
 *.box
+
+Vault_Decrypted.txt
