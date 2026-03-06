@@ -2,6 +2,7 @@
 IMAGE_NAME = "bento/ubuntu-24.04"
 
 Vagrant.configure("2") do |config|
+    config.vm.boot_timeout = 600
     #Globální definice platná pro všechny VM, pokud není určeno jinak
     config.vm.provider "virtualbox" do |v|
         v.memory = 2048
