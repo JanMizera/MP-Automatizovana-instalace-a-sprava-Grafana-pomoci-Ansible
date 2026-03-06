@@ -34,7 +34,7 @@
       ansible.builtin.git:
         repo: 'https://github.com/zabbix/zabbix-docker'
         dest: /opt/zabbix-docker/
-        version: 6.0
+        version: 7.0
     
     - name: Docker compose
       community.docker.docker_compose_v2:
