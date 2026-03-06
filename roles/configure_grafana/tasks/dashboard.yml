@@ -1,9 +1,18 @@
 ---
-- name: Import dashboard
+- name: Import dashboard for Zabbix server
   community.grafana.grafana_dashboard:
     url: "http://192.168.1.3:3000"
     url_username: admin
     url_password: "{{ grafana_admin_password }}"
-    path: "{{ role_path }}/files/Zabbix-SRV01.json"
+    path: "{{ role_path }}/files/ZabbixServerDashboard.json"
+    state: present
+    overwrite: yes
+    
+- name: Import dashboard for All nodes
+  community.grafana.grafana_dashboard:
+    url: "http://192.168.1.3:3000"
+    url_username: admin
+    url_password: "{{ grafana_admin_password }}"
+    path: "{{ role_path }}/files/AllNodesDashboard.json"
     state: present
     overwrite: yes
