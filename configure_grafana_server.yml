@@ -1,7 +1,6 @@
 ---
 - name: configure-zabbix-server
   hosts: localhost
-  become: yes
   vars_files:
     - vars/vault.yml
 
