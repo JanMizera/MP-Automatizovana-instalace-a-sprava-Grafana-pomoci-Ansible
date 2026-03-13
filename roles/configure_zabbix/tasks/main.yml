@@ -1,4 +1,5 @@
 ---
+# Nastavení výchozích přihlašovacích údajů pro první přístup k API (standardní Admin/zabbix)
 - name: Set default credentials to access Zabbix Server API
   ansible.builtin.set_fact:
     ansible_user: "{{ zabbix_admin_user }}"
@@ -12,6 +13,7 @@
 #    ansible_user: "{{ zabbix_admin_user }}"
 #    ansible_httpapi_pass: "{{ zabbix_admin_user_password }}"
 
+# Import jednotlivých konfiguračních celků
 - name: Add users to zabbix
   ansible.builtin.import_tasks: users.yml
 

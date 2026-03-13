@@ -1,3 +1,4 @@
+# Jinja2 šablona pro Docker Compose - hodnoty v {{ }} se doplní z Ansible Vaultu
 services:
   grafana:
     image: grafana/grafana-enterprise
@@ -7,5 +8,6 @@ services:
       - '3000:3000'
     environment:
       - GF_INSTALL_PLUGINS=alexanderzobnin-zabbix-app
+      # Heslo se bezpečně propisuje z proměnných grafana_admin_password v zašifrovaném vault.yml
       - GF_SECURITY_ADMIN_PASSWORD={{ grafana_admin_password }}
       - GF_SECURITY_DISABLE_INITIAL_ADMIN_PASSWORD_CHALLENGE=true

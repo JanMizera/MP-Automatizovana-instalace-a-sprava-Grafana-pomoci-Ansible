@@ -8,6 +8,7 @@
     state: present
     generate_token: true
     expires_at: 0
+  # Výstup modulu (obsahující vygenerovaný token) uložíme do proměnné
   register: grafana_token_output
 
 - name: Create directory for the token
@@ -17,6 +18,7 @@
     mode: '0755'
   become: true
 
+# Uložení tokenu do souboru na Bastion, aby ho později mohla přečíst role pro Grafanu
 - name: Save the token into local file
   ansible.builtin.copy:
     dest: "/opt/tokens/grafana_token.txt"

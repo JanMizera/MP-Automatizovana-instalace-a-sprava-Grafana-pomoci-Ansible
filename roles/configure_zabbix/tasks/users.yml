@@ -1,4 +1,5 @@
 ---
+# Vytvoření dedikovaného API uživatele s vysokým oprávněním pro potřeby Grafany
 - name: Create a new Zabbix user
   community.zabbix.zabbix_user:
     username: "{{ zabbix_api_user }}"
