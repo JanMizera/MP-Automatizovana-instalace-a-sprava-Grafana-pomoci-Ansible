@@ -2016,7 +2016,7 @@
   "refresh": "1m",
   "schemaVersion": 42,
   "tags": [
-    "zabbix34"
+    "Zabbix 7.0"
   ],
   "templating": {
     "list": [
